@@ -1,4 +1,4 @@
-import { parse as parseMessageDefinition } from "@foxglove/rosmsg";
+import { parse as parseMessageDefinition } from "@lichtblick/rosmsg";
 import parserBabel from "prettier/parser-babel";
 import prettier from "prettier/standalone";
 

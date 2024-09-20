@@ -1,15 +1,15 @@
-# @foxglove/rosmsg-serialization
+# @lichtblick/rosmsg-serialization
 
 > _ROS1 (Robot Operating System) message serialization, for reading and writing bags and network messages_
 
-[![npm version](https://img.shields.io/npm/v/@foxglove/rosmsg-serialization.svg?style=flat)](https://www.npmjs.com/package/@foxglove/rosmsg-serialization)
+[![npm version](https://img.shields.io/npm/v/@lichtblick/rosmsg-serialization.svg?style=flat)](https://www.npmjs.com/package/@lichtblick/rosmsg-serialization)
 
 ## MessageReader
 
 Message reader deserializes ROS messages into plain objects. The messages are fully deserialized.
 
 ```typescript
-import { MessageReader } from "@foxglove/rosmsg-serialization";
+import { MessageReader } from "@lichtblick/rosmsg-serialization";
 
 // message definition comes from `parse()` in @foxglove/rosmsg
 const reader = new MessageReader(messageDefinition);
@@ -28,7 +28,7 @@ a lazy message from a buffer performs no de-serialization during creation. Only 
 deserialized; the deserialization occurs at access time.
 
 ```Typescript
-import { LazyMessageReader } from "@foxglove/rosmsg-serialization";
+import { LazyMessageReader } from "@lichtblick/rosmsg-serialization";
 
 // message definition comes from `parse()` in @foxglove/rosmsg
 const reader = new LazyMessageReader(messageDefinition);
@@ -46,7 +46,7 @@ message.header.stamp;
 Convert an object, array, or primitive value into binary data using ROS message serialization.
 
 ```Typescript
-import { MessageWriter } from "@foxglove/rosmsg-serialization";
+import { MessageWriter } from "@lichtblick/rosmsg-serialization";
 
 // message definition comes from `parse()` in @foxglove/rosmsg
 const writer = new MessageWriter(pointStampedMessageDefinition);
@@ -70,7 +70,7 @@ const uint8Array = writer.writeMessage({
 
 ## License
 
-@foxglove/rosmsg-serialization is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+@lichtblick/rosmsg-serialization is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Releasing
 
@@ -82,17 +82,13 @@ const uint8Array = writer.writeMessage({
 
 The `bench` folder contains benchmarks. Run with:
 
-```
+```plain
 yarn bench
 yarn bench:benny
 ```
 
 To run benchmarks in web:
 
-```
+```plain
 yarn bench:web
 ```
-
-## Stay in touch
-
-Join our [Slack channel](https://foxglove.dev/slack) to ask questions, share feedback, and stay up to date on what our team is working on.

@@ -7,7 +7,7 @@
 //   found at http://www.apache.org/licenses/LICENSE-2.0
 //   You may not use this file except in compliance with the License.
 
-import { parse as parseMessageDefinition } from "@foxglove/rosmsg";
+import { parse as parseMessageDefinition } from "@lichtblick/rosmsg";
 
 import { MessageReader } from "./MessageReader";
 import messageReaderTests from "./fixtures/messageReaderTests";
