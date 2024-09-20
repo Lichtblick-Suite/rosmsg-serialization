@@ -1,6 +1,6 @@
 {
-  "name": "@foxglove/rosmsg-serialization",
-  "version": "2.0.3",
+  "name": "@lichtblick/rosmsg-serialization",
+  "version": "1.0.0",
   "description": "ROS1 (Robot Operating System) message serialization, for reading and writing bags and network messages",
   "license": "MIT",
   "keywords": [
@@ -16,13 +16,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/foxglove/rosmsg-serialization.git"
+    "url": "https://github.com/lichtblick-suite/rosmsg-serialization"
   },
   "author": {
-    "name": "Foxglove Technologies Inc",
-    "email": "contact@foxglove.dev"
+    "name": "Lichtblick",
+    "email": "lichtblick@bmwgroup.com"
   },
-  "homepage": "https://github.com/foxglove/rosmsg-serialization",
+  "homepage": "https://github.com/lichtblick-suite",
   "module": "dist/esm/index.js",
   "main": "dist/cjs/index.js",
   "typings": "dist/esm/index.d.ts",
@@ -45,17 +45,18 @@
     "bench:web": "yarn build:web && open bench/web.html"
   },
   "engines": {
-    "node": ">= 14"
+    "node": ">= 18"
   },
   "devDependencies": {
-    "@foxglove/eslint-plugin": "0.22.1",
-    "@foxglove/rosmsg": "^4.0.0",
-    "@foxglove/tsconfig": "1.1.0",
+    "@lichtblick/eslint-plugin": "^1.0.1",
+    "@lichtblick/message-definition": "^1.0.0",
+    "@lichtblick/rosmsg": "^1.0.0",
+    "@lichtblick/tsconfig": "^1.0.0",
     "@types/jest": "^29.4.0",
     "@types/node": "^20.3.2",
     "@types/prettier": "2.7.2",
-    "@typescript-eslint/eslint-plugin": "5.54.0",
-    "@typescript-eslint/parser": "5.62.0",
+    "@typescript-eslint/eslint-plugin": "^6",
+    "@typescript-eslint/parser": "^8.6.0",
     "benny": "3.7.1",
     "console-table-printer": "2.11.1",
     "esbuild": "0.17.11",
@@ -73,8 +74,5 @@
     "ts-jest": "29.1.2",
     "ts-node": "10.9.1",
     "typescript": "5.1.6"
-  },
-  "dependencies": {
-    "@foxglove/message-definition": "^0.3.1"
   }
 }

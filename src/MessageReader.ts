@@ -7,7 +7,7 @@
 //   found at http://www.apache.org/licenses/LICENSE-2.0
 //   You may not use this file except in compliance with the License.
 
-import { MessageDefinition } from "@foxglove/message-definition";
+import { MessageDefinition } from "@lichtblick/message-definition";
 
 import decodeString from "./decodeString";
 
@@ -80,7 +80,7 @@ export class StandardTypeReader {
     len: number | null | undefined,
     TypedArrayConstructor: TypedArrayConstructor,
   ): TypedArray {
-    const arrayLength = len == undefined ? this.uint32() : len;
+    const arrayLength = len ?? this.uint32();
     const view = this.view;
     const totalOffset = this.offset + view.byteOffset;
     this.offset += arrayLength * TypedArrayConstructor.BYTES_PER_ELEMENT;
@@ -228,7 +228,7 @@ export const createParsers = ({
   definitions: readonly MessageDefinition[];
   options?: { freeze?: boolean };
   topLevelReaderKey: string;
-}): Map<string, { new (reader: StandardTypeReader): unknown }> => {
+}): Map<string, new (reader: StandardTypeReader) => unknown> => {
   if (definitions.length === 0) {
     throw new Error(`no types given`);
   }
@@ -264,11 +264,7 @@ export const createParsers = ({
         const lenField = `length_${def.name}`;
         // set a variable pointing to the parsed fixed array length
         // or read the byte indicating the dynamic length
-        readerLines.push(
-          `var ${lenField} = ${
-            def.arrayLength != undefined ? def.arrayLength : "reader.uint32();"
-          }`,
-        );
+        readerLines.push(`var ${lenField} = ${def.arrayLength ?? "reader.uint32();"}`);
 
         // only allocate an array if there is a length - skips empty allocations
         const arrayName = `this.${def.name}`;
@@ -322,12 +318,12 @@ export const createParsers = ({
   // eslint-disable-next-line @typescript-eslint/no-implied-eval,no-new-func
   return new Function("topLevelReaderKey", js)(topLevelReaderKey) as Map<
     string,
-    { new (reader: StandardTypeReader): unknown }
+    new (reader: StandardTypeReader) => unknown
   >;
 };
 
 export class MessageReader {
-  reader: { new (reader: StandardTypeReader): unknown };
+  reader: new (reader: StandardTypeReader) => unknown;
 
   // takes an object message definition and returns
   // a message reader which can be used to read messages based
