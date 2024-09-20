@@ -45,7 +45,7 @@
     "bench:web": "yarn build:web && open bench/web.html"
   },
   "engines": {
-    "node": ">= 14"
+    "node": ">= 18"
   },
   "devDependencies": {
     "@lichtblick/eslint-plugin": "^1.0.1",
