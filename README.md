@@ -11,7 +11,7 @@ Message reader deserializes ROS messages into plain objects. The messages are fu
 ```typescript
 import { MessageReader } from "@lichtblick/rosmsg-serialization";
 
-// message definition comes from `parse()` in @foxglove/rosmsg
+// message definition comes from `parse()` in @lichtblick/rosmsg
 const reader = new MessageReader(messageDefinition);
 
 // deserialize a buffer into an object
@@ -30,7 +30,7 @@ deserialized; the deserialization occurs at access time.
 ```Typescript
 import { LazyMessageReader } from "@lichtblick/rosmsg-serialization";
 
-// message definition comes from `parse()` in @foxglove/rosmsg
+// message definition comes from `parse()` in @lichtblick/rosmsg
 const reader = new LazyMessageReader(messageDefinition);
 
 // build a new lazy message instance for our serialized message from the Uint8Array
@@ -48,7 +48,7 @@ Convert an object, array, or primitive value into binary data using ROS message 
 ```Typescript
 import { MessageWriter } from "@lichtblick/rosmsg-serialization";
 
-// message definition comes from `parse()` in @foxglove/rosmsg
+// message definition comes from `parse()` in @lichtblick/rosmsg
 const writer = new MessageWriter(pointStampedMessageDefinition);
 
 // serialize the passed in object to a Uint8Array as a geometry_msgs/PointStamped message
